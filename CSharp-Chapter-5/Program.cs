@@ -6,58 +6,29 @@ namespace CSharp_Chapter_5
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Chapter 5");
+            string[] deck = new string[52];
 
-            string[] names = new string[3];
+            string[] suits = { "Hearts", "Diamonds", "Spades", "Clubs" };
 
-            Console.WriteLine($"Array length: { names.Length}");
+            int deckIndex = 0;
+            int deckLength = deck.Length;
+            int suitsLength = suits.Length;
 
-            names[0] = "Paul";
-
-            Console.WriteLine(names[0]);
-
-            string[] places = { "Sweden", "China", "Spain", "England" };
-
-            Console.WriteLine($"Places Array length: { places.Length}");
-
-            Console.WriteLine($"The second country is {places[1]} with index 1");
-
-            foreach (string place in places)
+            for (int suit = 0; suit < suits.Length; suit++)
             {
-                Console.WriteLine(place);
+
+                for (int card = 0; card < (deckLength / suitsLength); card++)
+                {
+                    deck[deckIndex] = $"{card + 1} of {suits[suit]}";
+
+                    deckIndex++;
+                }
             }
 
-            string[] cities = new string[3];
-
-            Console.WriteLine($"Type {cities.Length} cities...");
-
-            for (int i = 0; i < cities.Length; i++)
+            foreach (string card in deck)
             {
-                Console.Write($"City {i + 1}: ");
-
-                cities[i] = Console.ReadLine();
+                Console.WriteLine(card);
             }
-
-            Console.WriteLine($"The cities are: {string.Join(", ", cities[0..(cities.Length - 1)])} and {cities[cities.Length - 1]}");
-
-            Console.WriteLine("Array of numbers");
-
-            int[] numbers = { 9, 34, 65, 92, 87, 435, 3, 54,
-                    83, 23, 87, 67, 12, 19 };
-
-            int sum = 0;
-
-            foreach(int num in numbers)
-            {
-                sum += num;
-            }
-
-            Console.WriteLine($"The sum of all the numbers is {sum}");
-
-            Console.WriteLine("Last number in array");
-            int last = numbers[numbers.Length - 1];
-
-            Console.WriteLine(last);
         }
     }
 }
