@@ -25,10 +25,22 @@ namespace CSharp_Chapter_5
                 }
             }
 
+            bool found = false;
+            string find = "2 of Hearts";
+
             foreach (string card in deck)
             {
+                if (card == find)
+                {
+                    found = true;
+                }
+
                 Console.WriteLine(card);
             }
+
+            string result = found ? "found" : "not found";
+
+            Console.WriteLine($"\nThe card {find} was {result}");
         }
     }
 }
